@@ -3,3 +3,6 @@ kaggle
 logs
 checkpoints
 *.pyc
+ensemble*
+mask*
+figures

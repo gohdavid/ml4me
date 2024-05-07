@@ -1,0 +1,2034 @@
+/home/gridsan/ddavid/ml/psets/ps6/hyperparameter.py:146: UserWarning: Dropping last batch of size 1 to avoid issues with batch normalization (dataset size = 1, batch_size = 64)
+  warnings.warn(
+/home/gridsan/ddavid/ml/psets/ps6/hyperparameter.py:275: ExperimentalWarning: PatientPruner is experimental (supported from v2.8.0). The interface can change in the future.
+  pruner = optuna.pruners.PatientPruner(optuna.pruners.MedianPruner(), patience=1)
+[I 2024-05-04 23:59:54,556] A new study created in memory with name: no-name-09152903-40f8-4495-8255-e0b627035ac1
+/home/gridsan/ddavid/.conda/envs/torch/lib/python3.12/site-packages/lightning/pytorch/utilities/parsing.py:199: Attribute 'output_transform' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['output_transform'])`.
+/home/gridsan/ddavid/.conda/envs/torch/lib/python3.12/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python /home/gridsan/ddavid/ml/psets/ps6/hyperparameter.py ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/home/gridsan/ddavid/.conda/envs/torch/lib/python3.12/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python /home/gridsan/ddavid/ml/psets/ps6/hyperparameter.py ...
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+/home/gridsan/ddavid/.conda/envs/torch/lib/python3.12/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=79` in the `DataLoader` to improve performance.
+/home/gridsan/ddavid/.conda/envs/torch/lib/python3.12/site-packages/lightning/pytorch/loops/fit_loop.py:298: The number of training batches (46) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+/home/gridsan/ddavid/.conda/envs/torch/lib/python3.12/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=79` in the `DataLoader` to improve performance.
+`Trainer.fit` stopped: `max_epochs=100` reached.
+[I 2024-05-05 00:03:09,787] Trial 0 finished with value: 0.11407551914453506 and parameters: {'hidden_dim': 475, 'n_layers': 2, 'dropout': 0.3736556425903609, 'depth': 5, 'max_epochs': 100}. Best is trial 0 with value: 0.11407551914453506.
+/home/gridsan/ddavid/.conda/envs/torch/lib/python3.12/site-packages/lightning/pytorch/utilities/parsing.py:199: Attribute 'output_transform' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['output_transform'])`.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=144` reached.
+[I 2024-05-05 00:07:01,217] Trial 1 finished with value: 0.11201756447553635 and parameters: {'hidden_dim': 1334, 'n_layers': 2, 'dropout': 0.33548216282689497, 'depth': 4, 'max_epochs': 144}. Best is trial 1 with value: 0.11201756447553635.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=70` reached.
+[I 2024-05-05 00:08:57,460] Trial 2 finished with value: 0.11394470185041428 and parameters: {'hidden_dim': 1189, 'n_layers': 1, 'dropout': 0.2866988266879685, 'depth': 5, 'max_epochs': 70}. Best is trial 1 with value: 0.11201756447553635.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=106` reached.
+[I 2024-05-05 00:11:41,741] Trial 3 finished with value: 0.11812285333871841 and parameters: {'hidden_dim': 957, 'n_layers': 1, 'dropout': 0.224506561385661, 'depth': 5, 'max_epochs': 106}. Best is trial 1 with value: 0.11201756447553635.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=87` reached.
+[I 2024-05-05 00:13:58,035] Trial 4 finished with value: 0.11227679252624512 and parameters: {'hidden_dim': 930, 'n_layers': 3, 'dropout': 0.06255093897706772, 'depth': 5, 'max_epochs': 87}. Best is trial 1 with value: 0.11201756447553635.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:14:26,361] Trial 5 pruned. Trial was pruned at epoch 17.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:14:49,423] Trial 6 pruned. Trial was pruned at epoch 14.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:15:03,293] Trial 7 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:16:07,968] Trial 8 pruned. Trial was pruned at epoch 40.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:16:23,322] Trial 9 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:16:42,298] Trial 10 pruned. Trial was pruned at epoch 11.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:16:50,030] Trial 11 pruned. Trial was pruned at epoch 4.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:17:06,868] Trial 12 pruned. Trial was pruned at epoch 10.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:17:16,032] Trial 13 pruned. Trial was pruned at epoch 5.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:17:32,123] Trial 14 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:17:47,351] Trial 15 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:18:02,599] Trial 16 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:18:22,965] Trial 17 pruned. Trial was pruned at epoch 12.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:18:43,063] Trial 18 pruned. Trial was pruned at epoch 12.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:18:53,827] Trial 19 pruned. Trial was pruned at epoch 6.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:18:59,969] Trial 20 pruned. Trial was pruned at epoch 3.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:19:15,441] Trial 21 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=62` reached.
+[I 2024-05-05 00:20:56,959] Trial 22 finished with value: 0.11371288448572159 and parameters: {'hidden_dim': 1173, 'n_layers': 1, 'dropout': 0.2858279261805069, 'depth': 4, 'max_epochs': 62}. Best is trial 1 with value: 0.11201756447553635.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:21:17,048] Trial 23 pruned. Trial was pruned at epoch 12.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:21:40,815] Trial 24 pruned. Trial was pruned at epoch 14.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:21:56,154] Trial 25 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:22:16,227] Trial 26 pruned. Trial was pruned at epoch 12.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:22:31,427] Trial 27 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:22:47,346] Trial 28 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:23:10,347] Trial 29 pruned. Trial was pruned at epoch 14.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:23:22,539] Trial 30 pruned. Trial was pruned at epoch 7.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:23:36,334] Trial 31 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:23:59,259] Trial 32 pruned. Trial was pruned at epoch 14.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:24:14,795] Trial 33 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:24:25,569] Trial 34 pruned. Trial was pruned at epoch 6.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:25:12,275] Trial 35 pruned. Trial was pruned at epoch 29.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:25:24,544] Trial 36 pruned. Trial was pruned at epoch 7.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:25:40,132] Trial 37 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:25:55,817] Trial 38 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:26:23,436] Trial 39 pruned. Trial was pruned at epoch 17.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:26:48,053] Trial 40 pruned. Trial was pruned at epoch 15.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:27:06,407] Trial 41 pruned. Trial was pruned at epoch 11.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:27:29,324] Trial 42 pruned. Trial was pruned at epoch 14.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:27:49,032] Trial 43 pruned. Trial was pruned at epoch 12.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:28:32,126] Trial 44 pruned. Trial was pruned at epoch 26.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=68` reached.
+[I 2024-05-05 00:30:15,691] Trial 45 finished with value: 0.11440890282392502 and parameters: {'hidden_dim': 2399, 'n_layers': 2, 'dropout': 0.33288351401060756, 'depth': 4, 'max_epochs': 68}. Best is trial 1 with value: 0.11201756447553635.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:30:31,091] Trial 46 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:30:46,119] Trial 47 pruned. Trial was pruned at epoch 9.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:30:56,764] Trial 48 pruned. Trial was pruned at epoch 6.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:31:20,234] Trial 49 pruned. Trial was pruned at epoch 14.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:31:27,925] Trial 50 pruned. Trial was pruned at epoch 4.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:31:55,427] Trial 51 pruned. Trial was pruned at epoch 17.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:32:04,558] Trial 52 pruned. Trial was pruned at epoch 5.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=55` reached.
+[I 2024-05-05 00:33:29,656] Trial 53 finished with value: 0.11133205145597458 and parameters: {'hidden_dim': 1964, 'n_layers': 2, 'dropout': 0.3305756253882013, 'depth': 5, 'max_epochs': 55}. Best is trial 53 with value: 0.11133205145597458.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=58` reached.
+[I 2024-05-05 00:34:58,894] Trial 54 finished with value: 0.11257430166006088 and parameters: {'hidden_dim': 1958, 'n_layers': 1, 'dropout': 0.30788799501649006, 'depth': 5, 'max_epochs': 58}. Best is trial 53 with value: 0.11133205145597458.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:35:08,042] Trial 55 pruned. Trial was pruned at epoch 5.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=58` reached.
+[I 2024-05-05 00:36:35,952] Trial 56 finished with value: 0.11005508899688721 and parameters: {'hidden_dim': 2053, 'n_layers': 1, 'dropout': 0.30440412077533446, 'depth': 5, 'max_epochs': 58}. Best is trial 56 with value: 0.11005508899688721.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:36:42,114] Trial 57 pruned. Trial was pruned at epoch 3.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:36:58,442] Trial 58 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:37:14,649] Trial 59 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:37:30,828] Trial 60 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:38:03,140] Trial 61 pruned. Trial was pruned at epoch 17.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:38:12,249] Trial 62 pruned. Trial was pruned at epoch 4.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:38:33,828] Trial 63 pruned. Trial was pruned at epoch 11.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:38:49,979] Trial 64 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:38:57,166] Trial 65 pruned. Trial was pruned at epoch 3.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=55` reached.
+[I 2024-05-05 00:40:21,630] Trial 66 finished with value: 0.11027977615594864 and parameters: {'hidden_dim': 2053, 'n_layers': 1, 'dropout': 0.21177776358466824, 'depth': 5, 'max_epochs': 55}. Best is trial 56 with value: 0.11005508899688721.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:40:44,363] Trial 67 pruned. Trial was pruned at epoch 14.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:40:58,026] Trial 68 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:41:11,752] Trial 69 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:41:25,568] Trial 70 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:41:39,278] Trial 71 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:41:45,430] Trial 72 pruned. Trial was pruned at epoch 3.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:41:59,132] Trial 73 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:42:06,834] Trial 74 pruned. Trial was pruned at epoch 4.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:42:44,930] Trial 75 pruned. Trial was pruned at epoch 24.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:43:03,211] Trial 76 pruned. Trial was pruned at epoch 11.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:44:27,601] Trial 77 pruned. Trial was pruned at epoch 54.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:44:47,508] Trial 78 pruned. Trial was pruned at epoch 12.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:45:14,917] Trial 79 pruned. Trial was pruned at epoch 17.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:45:38,055] Trial 80 pruned. Trial was pruned at epoch 14.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:45:47,205] Trial 81 pruned. Trial was pruned at epoch 5.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:46:17,904] Trial 82 pruned. Trial was pruned at epoch 19.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:46:28,566] Trial 83 pruned. Trial was pruned at epoch 6.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:46:40,743] Trial 84 pruned. Trial was pruned at epoch 7.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:46:49,887] Trial 85 pruned. Trial was pruned at epoch 5.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:47:00,499] Trial 86 pruned. Trial was pruned at epoch 6.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:47:41,797] Trial 87 pruned. Trial was pruned at epoch 26.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:48:20,034] Trial 88 pruned. Trial was pruned at epoch 24.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=53` reached.
+[I 2024-05-05 00:49:43,020] Trial 89 finished with value: 0.11679831892251968 and parameters: {'hidden_dim': 1036, 'n_layers': 1, 'dropout': 0.06016841114864107, 'depth': 4, 'max_epochs': 53}. Best is trial 56 with value: 0.11005508899688721.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:49:57,187] Trial 90 pruned. Trial was pruned at epoch 8.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:50:27,625] Trial 91 pruned. Trial was pruned at epoch 18.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:51:04,237] Trial 92 pruned. Trial was pruned at epoch 22.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:51:26,473] Trial 93 pruned. Trial was pruned at epoch 13.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:51:32,868] Trial 94 pruned. Trial was pruned at epoch 3.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:51:56,513] Trial 95 pruned. Trial was pruned at epoch 14.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=50` reached.
+[I 2024-05-05 00:53:15,175] Trial 96 finished with value: 0.11291539669036865 and parameters: {'hidden_dim': 1380, 'n_layers': 1, 'dropout': 0.23444182225185128, 'depth': 5, 'max_epochs': 50}. Best is trial 56 with value: 0.11005508899688721.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+`Trainer.fit` stopped: `max_epochs=50` reached.
+[I 2024-05-05 00:54:34,004] Trial 97 finished with value: 0.11489368230104446 and parameters: {'hidden_dim': 1629, 'n_layers': 1, 'dropout': 0.23534068075198797, 'depth': 5, 'max_epochs': 50}. Best is trial 56 with value: 0.11005508899688721.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:54:53,830] Trial 98 pruned. Trial was pruned at epoch 12.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [GPU-4f1276a4-58eb-2597-9e2a-c281dc35b16d]
+Loading `train_dataloader` to estimate number of stepping batches.
+
+  | Name            | Type                         | Params
+-----------------------------------------------------------------
+0 | message_passing | MulticomponentMessagePassing | 455 K 
+1 | agg             | MeanAggregation              | 0     
+2 | bn              | BatchNorm1d                  | 1.2 K 
+3 | predictor       | RegressionFFN                | 4.8 M 
+4 | X_d_transform   | Identity                     | 0     
+-----------------------------------------------------------------
+5.2 M     Trainable params
+0         Non-trainable params
+5.2 M     Total params
+20.971    Total estimated model params size (MB)
+[I 2024-05-05 00:55:07,503] Trial 99 pruned. Trial was pruned at epoch 8.
+Best trial:
+  Value: 0.11005508899688721
+  Params: 
+    hidden_dim: 2053
+    n_layers: 1
+    dropout: 0.30440412077533446
+    depth: 5
+    max_epochs: 58

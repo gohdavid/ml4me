@@ -7,4 +7,4 @@
 #SBATCH --mem-per-cpu=9G
 
 source activate torch
-python /home/gridsan/ddavid/ml/psets/ps6/hyperparameter.py
+python /home/gridsan/ddavid/ml/psets/ps6/nodescriptor.py $SLURM_JOB_ID $MASK
