@@ -1,0 +1,1 @@
+[{'batch_averaged_test/rmse': 0.17113596200942993, 'batch_averaged_test/mae': 0.1211632713675499, 'batch_averaged_test/r2': 0.9882352948188782}]

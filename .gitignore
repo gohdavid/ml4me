@@ -3,6 +3,5 @@ kaggle
 logs
 checkpoints
 *.pyc
-ensemble*
-
 figures
+*.csv

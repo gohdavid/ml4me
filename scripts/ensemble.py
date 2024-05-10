@@ -14,7 +14,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression, Lasso, Ridge
 from sklearn.pipeline import Pipeline
-from sklearn.model_selection import cross_val_score, KFold
+from sklearn.model_selection import cross_val_score
 from sklearn.metrics import r2_score
 from sklearn.neural_network import MLPRegressor
 
@@ -161,6 +161,51 @@ def custom_build_dataloader(
         **kwargs,
     )
 
+
+features = ["TPSA", "LASA", "NumRotatableBonds", "NumHDonors", "NumHAcceptors", "MolLogP", "MolMR", "AromProp"]
+
+data_dir = Path.cwd() / "data"
+train_file = data_dir / "solvation_train.csv"
+test_file = data_dir / "solvation_test.csv"
+prop_file = data_dir / "molecule_props.csv"
+smiles_columns = ['Solute', 'Solvent'] # name of the column containing SMILES strings
+target_columns = ['logK'] # list of names of the columns containing targets
+df_input = pd.read_csv(train_file)
+smiss = df_input.loc[:, smiles_columns].values
+ys = df_input.loc[:, target_columns].values
+
+split_type="random"
+split = (0.9, 0.01, 0.09)
+
+mfs = [PropFeaturizer(features)]
+all_data = [[data.MoleculeDatapoint.from_smi(smis[0], y, mfs=mfs) for smis, y in zip(smiss, ys)]]
+all_data += [[data.MoleculeDatapoint.from_smi(smis[i], mfs=mfs) for smis in smiss] for i in range(1, len(smiles_columns))]
+
+component_to_split_by = 0
+mols = [d.mol for d in all_data[component_to_split_by]]
+
+train_indices, val_indices, test_indices = data.make_split_indices(mols, split_type, split)
+
+train_data, val_data, test_data = data.split_data_by_indices(
+    all_data, train_indices, val_indices, test_indices
+)
+
+featurizer = featurizers.SimpleMoleculeMolGraphFeaturizer()
+
+train_datasets = [data.MoleculeDataset(train_data[i], featurizer) for i in range(len(smiles_columns))]
+train_mcdset = data.MulticomponentDataset(train_datasets)
+scaler = train_mcdset.normalize_targets()
+train_loader = custom_build_dataloader(train_mcdset)
+
+val_datasets = [data.MoleculeDataset(val_data[i], featurizer) for i in range(len(smiles_columns))]
+val_mcdset = data.MulticomponentDataset(val_datasets)
+val_mcdset.normalize_targets(scaler)
+val_loader = custom_build_dataloader(val_mcdset, shuffle=False)
+
+test_datasets = [data.MoleculeDataset(test_data[i], featurizer) for i in range(len(smiles_columns))]
+test_mcdset = data.MulticomponentDataset(test_datasets)
+test_loader = custom_build_dataloader(test_mcdset, shuffle=False)
+
 class MulticomponentMPNN:
     def __init__(self, smiles_columns, scaler, features, hidden_dim=1900, n_layers=2, dropout=0.008, depth=6):
         # Initialize the Multicomponent Message Passing Neural Network component
@@ -177,7 +222,7 @@ class MulticomponentMPNN:
 
         # Fully connected feedforward network
         self.ffn = nn.RegressionFFN(
-            input_dim=self.mcmp.output_dim + len(features),
+            input_dim=self.mcmp.output_dim + 2 * len(features),
             output_transform=self.output_transform,
             hidden_dim=hidden_dim,
             n_layers=n_layers,
@@ -197,86 +242,40 @@ class MulticomponentMPNN:
 
     def get_model(self):
         return self.model
+    
+# mcmpnn = MulticomponentMPNN(smiles_columns, scaler, features, hidden_dim=1904, n_layers=2, dropout=0.008, depth=6)
+mcmpnn = MulticomponentMPNN(smiles_columns, scaler_target, features, hidden_dim=1923, n_layers=2,
+                                dropout=0.016717180169380612, max_lr=0.006944491033377218, depth=5)
 
-solvent_features = ["TPSA", "LASA", "NumRotatableBonds", "NumHAcceptors", "MolMR", "AromProp"]
-solute_features = ["TPSA", "LASA", "NumRotatableBonds", "NumHDonors", "MolLogP", "MolMR", "AromProp"]
+logger = CSVLogger("logs", name="ensemble3")
 
+trainer = pl.Trainer(
+    logger=logger,
+    enable_checkpointing=True,
+    enable_progress_bar=False,
+    accelerator="gpu",
+    devices=1,
+    max_epochs=169, # number of epochs to train for
+)
 
-data_dir = Path.cwd() / "data"
-train_file = data_dir / "solvation_train.csv"
-test_file = data_dir / "solvation_test.csv"
-prop_file = data_dir / "molecule_props.csv"
-smiles_columns = ['Solute', 'Solvent'] # name of the column containing SMILES strings
-target_columns = ['logK'] # list of names of the columns containing targets
-df_input = pd.read_csv(train_file)
-smiss = df_input.loc[:, smiles_columns].values
-ys = df_input.loc[:, target_columns].values
+trainer.fit(mcmpnn.get_model(), train_loader, val_loader)
 
-split_type="random"
-split = (0.8, 0.1, 0.1)
+formatted_time = datetime.now().strftime("%Y%m%d-%H%M")
 
-all_data = [[data.MoleculeDatapoint.from_smi(smis[0], y, mfs=[PropFeaturizer(solute_features)]) for smis, y in zip(smiss, ys)]]
-all_data += [[data.MoleculeDatapoint.from_smi(smis[i], mfs=[PropFeaturizer(solvent_features)]) for smis in smiss] for i in range(1, len(smiles_columns))]
+results = trainer.test(mcmpnn.get_model(), test_loader)
 
-component_to_split_by = 0
-mols = [d.mol for d in all_data[component_to_split_by]]
+with open(f"./ensemble3/testr2_{formatted_time}_{jid}.txt", "w") as fhandle:
+    fhandle.write(f"{results}")
 
-kf = KFold(n_splits=5)
-for i, (train_indices, test_indices) in enumerate(kf.split(mols)):
-    train_data, val_data, test_data = data.split_data_by_indices(
-        all_data, train_indices, [0], test_indices
-    )
+kaggle_path = data_dir / "solvation_test.csv"
+df_kaggle = pd.read_csv(kaggle_path)
+smiss_kaggle = df_kaggle.loc[:, smiles_columns].values
+kaggle_data = [[data.MoleculeDatapoint.from_smi(smis[i], mfs=mfs) for smis in smiss_kaggle] for i in range(len(smiles_columns))]
+kaggle_datasets = [data.MoleculeDataset(kaggle_data[i], featurizer) for i in range(len(smiles_columns))]
+kaggle_mcdset = data.MulticomponentDataset(kaggle_datasets)
+kaggle_loader = custom_build_dataloader(kaggle_mcdset,shuffle=False)
 
-    featurizer = featurizers.SimpleMoleculeMolGraphFeaturizer()
+test_preds = trainer.predict(mcmpnn.get_model(), kaggle_loader)
+test_preds = np.concatenate(test_preds, axis=0)
 
-    train_datasets = [data.MoleculeDataset(train_data[i], featurizer) for i in range(len(smiles_columns))]
-    train_mcdset = data.MulticomponentDataset(train_datasets)
-    scaler = train_mcdset.normalize_targets()
-    train_loader = custom_build_dataloader(train_mcdset,num_workers=79)
-
-    val_datasets = [data.MoleculeDataset(val_data[i], featurizer) for i in range(len(smiles_columns))]
-    val_mcdset = data.MulticomponentDataset(val_datasets)
-    val_mcdset.normalize_targets(scaler)
-    val_loader = custom_build_dataloader(val_mcdset, shuffle=False,num_workers=79)
-
-    test_datasets = [data.MoleculeDataset(test_data[i], featurizer) for i in range(len(smiles_columns))]
-    test_mcdset = data.MulticomponentDataset(test_datasets)
-    test_loader = custom_build_dataloader(test_mcdset, shuffle=False,num_workers=79)
-        
-    mcmpnn = MulticomponentMPNN(smiles_columns, scaler, solvent_features+solute_features,
-                                hidden_dim=2053, n_layers=1, dropout=0.30440412077533446,
-                                depth=5)
-
-    logger = CSVLogger("logs", name=f"mask_sig")
-
-    trainer = pl.Trainer(
-        logger=logger,
-        enable_checkpointing=True,
-        enable_progress_bar=False,
-        accelerator="gpu",
-        devices=1,
-        max_epochs=58, # number of epochs to train for
-    )
-
-    trainer.fit(mcmpnn.get_model(), train_loader, val_loader)
-
-    formatted_time = datetime.now().strftime("%Y%m%d-%H%M")
-
-    results = trainer.test(mcmpnn.get_model(), test_loader)
-
-    with open(f"./mask/testr2_{formatted_time}_{jid}_sig_{i}.txt", "w") as fhandle:
-        fhandle.write(f"{results}")
-
-    kaggle_path = data_dir / "solvation_test.csv"
-    df_kaggle = pd.read_csv(kaggle_path)
-    smiss_kaggle = df_kaggle.loc[:, smiles_columns].values
-    kaggle_data = [data.MoleculeDatapoint.from_smi(smis[0], mfs=PropFeaturizer(solute_features)) for smis in smiss_kaggle]\
-        +[data.MoleculeDatapoint.from_smi(smis[1], mfs=PropFeaturizer(solvent_features)) for smis in smiss_kaggle]
-    kaggle_datasets = [data.MoleculeDataset(kaggle_data[i], featurizer) for i in range(len(smiles_columns))]
-    kaggle_mcdset = data.MulticomponentDataset(kaggle_datasets)
-    kaggle_loader = custom_build_dataloader(kaggle_mcdset,shuffle=False)
-
-    test_preds = trainer.predict(mcmpnn.get_model(), kaggle_loader)
-    test_preds = np.concatenate(test_preds, axis=0)
-
-    save_submission(test_preds.squeeze(),f"./mask/pred_{formatted_time}_{jid}_sig_{i}.csv")
+save_submission(test_preds.squeeze(),f"./ensemble3/pred_{formatted_time}_{jid}.csv")
